@@ -1,0 +1,71 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import csv
+
+N_list = [1,2,3,4,5,6,7,8,10,13,16,24,29,36,44,54,66,81,100]
+
+with open('time_data_FO_PINOCCHIO_100.csv', 'r') as file:
+    csv_reader = csv.reader(file)
+    csv_data = list(csv_reader) 
+
+    MTime_FO = []
+
+    # print(csv_data[:][0])
+    # print(csv_data[0][0])
+    # print(csv_data[0][1])
+    # print(csv_data[1][0])
+    # print(csv_data[1][1])
+
+    print("N_ROWS= ", len(csv_data)) # Number of rows
+    print("N_COLS= ", len(csv_data[0])) # Number of columns
+
+    val = 0.0
+    for j in range(0,len(csv_data[0])):
+        for i in range(0,len(csv_data)):
+            val = val + float(csv_data[i][j])
+        MTime_FO.append(val/len(csv_data))
+        val = 0.0
+
+    # print(MTime_FO)
+
+with open('time_data_SO_PINOCCHIO_100.csv', 'r') as file2:
+    csv_reader2 = csv.reader(file2)
+    csv_data2 = list(csv_reader2) 
+
+    MTime_SO = []
+
+    val2 = 0.0
+    for j in range(0,len(csv_data2[0])):
+        for i in range(0,len(csv_data2)):
+            val2 = val2 + float(csv_data2[i][j])
+        MTime_SO.append(val2/len(csv_data2))
+        val2 = 0.0
+    
+    # print(MTime_SO)
+
+    
+     
+# Create the figure and axes
+fig, ax = plt.subplots()
+# Create the box plot
+plt.plot(N_list,MTime_FO, label='FO_ABA')
+plt.plot(N_list,MTime_SO, label='SO_ABA')
+
+# Set the xy-axis to log scale
+ax.set_xscale('log')
+ax.set_yscale('log')
+
+# Add gridlines
+ax.minorticks_on()
+# Customize grids
+ax.grid(which='major', linestyle='-', linewidth='0.5', color='gray')
+ax.grid(which='minor', linestyle=':', linewidth='0.25', color='gray')
+
+# Add labels and title
+plt.title('ABA Partial Derivatives - Analytical Method (gcc)')
+plt.xlabel('Number of Joints N [-]')
+plt.ylabel('Run Time [$\mu$s]')
+plt.legend()
+# Show the plot
+plt.show()
+

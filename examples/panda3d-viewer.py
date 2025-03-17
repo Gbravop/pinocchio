@@ -18,6 +18,7 @@ from example_robot_data.robots_loader import (
     Solo8Loader,
     TalosLoader,
     TiagoLoader,
+    KinovaLoader,
 )
 from panda3d_viewer import Viewer
 from pinocchio.visualize.panda3d_visualizer import Panda3dVisualizer
@@ -27,13 +28,7 @@ viewer = Viewer(window_title="python-pinocchio")
 
 # These RobotLoader classes are defined in example_robot_data
 loaders = (
-    TalosLoader,
-    RomeoLoader,
-    ICubLoader,
-    TiagoLoader,
-    Solo8Loader,
-    HyQLoader,
-    HectorLoader,
+    KinovaLoader,
 )
 
 for i, loader in enumerate(loaders):

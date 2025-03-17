@@ -12,10 +12,12 @@ from pathlib import Path
 import numpy as np
 import pinocchio as pin
 
+# pinocchio_model_dir / "/opt/openrobots/share/example-robot-data/robots/ur_description/urdf/ur5_robot.urdf"
+
 # Load the model from a URDF file
 # Change to your own URDF file here, or give a path as command-line argument
 pinocchio_model_dir = Path(__file__).parent.parent / "models/"
-model_path = pinocchio_model_dir / "example-robot-data/robots"
+model_path = pinocchio_model_dir / "/opt/openrobots/share/example-robot-data/robots"
 mesh_dir = pinocchio_model_dir
 urdf_filename = "ur5_robot.urdf"
 urdf_model_path = model_path / "ur_description/urdf/" / urdf_filename
