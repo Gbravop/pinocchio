@@ -24,6 +24,10 @@
   #define PINOCCHIO_MODEL_DIR "path_to_the_model_dir"
 #endif
 
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+// Code Implementation based on: 
+// S. Singh, R. P. Russell and P. M. Wensing, "On Second-Order Derivatives of Rigid-Body Dynamics: Theory and Implementation," in IEEE Transactions on Robotics, vol. 40, pp. 2233-2253, 2024, doi: 10.1109/TRO.2024.3370002.
+
 // already in col major- CHEAP
 // get matrix from a tensor along dimension-2 (or keeping second dim constant)
 // dim of tens : nxnxn
@@ -88,6 +92,11 @@ void hess_assign_fd2(Eigen::Tensor<double, 3>& hess, const Eigen::MatrixBase<T>&
         }
     }
 }
+
+// Code Implementation based on: 
+// S. Singh, R. P. Russell and P. M. Wensing, "On Second-Order Derivatives of Rigid-Body Dynamics: Theory and Implementation," in IEEE Transactions on Robotics, vol. 40, pp. 2233-2253, 2024, doi: 10.1109/TRO.2024.3370002.
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 int main(int argc, char ** argv)
 {
