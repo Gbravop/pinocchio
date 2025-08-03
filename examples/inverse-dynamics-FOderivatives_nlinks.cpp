@@ -203,20 +203,20 @@ int main(int argc, char ** argv)
 }
 
 // Opening file to save data:
-std::ofstream outfile;
-std::string filewrite = "time_data_FOid_PINOCCHIO_100.csv";
-outfile.open(filewrite);
+// std::ofstream outfile;
+// std::string filewrite = "time_data_FOid_PINOCCHIO_100.csv";
+// outfile.open(filewrite);
 
-for (int i=0; i<T_FO.rows(); i++){
-    for (int j=0; j<T_FO.cols(); j++){
-        outfile << T_FO(i,j);
-        if (j<T_FO.cols()-1){
-            outfile << ",";
-        }
-    }    
-    outfile << "\n";
-}
-outfile.close();
+// for (int i=0; i<T_FO.rows(); i++){
+//     for (int j=0; j<T_FO.cols(); j++){
+//         outfile << T_FO(i,j);
+//         if (j<T_FO.cols()-1){
+//             outfile << ",";
+//         }
+//     }    
+//     outfile << "\n";
+// }
+// outfile.close();
 
 }
 
